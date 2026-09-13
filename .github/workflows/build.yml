@@ -18,20 +18,14 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Extract project
+      - name: Extract FIXED project
         run: |
-          unzip -o gengkarung_flutter_aab_project.zip -d project
+          unzip -o gengkarung_flutter_aab_project_FIXED.zip -d project
           cd project
           shopt -s dotglob
           cp -r . ../
           cd ..
           rm -rf project
-
-      - name: Generate Android platform files
-        run: |
-          flutter create . \
-            --org com.gengkarung \
-            --project-name app
 
       - name: Install dependencies
         run: flutter pub get
